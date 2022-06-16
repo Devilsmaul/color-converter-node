@@ -1,0 +1,72 @@
+[
+  {
+      "id": "854e49ed438b2f91",
+      "type": "color-converter",
+      "z": "175bf39a7215ebb4",
+      "name": "",
+      "cieConfig": "f457e57dc3b6cb23",
+      "output": "xyBri",
+      "formatter": "z2mqtt",
+      "x": 400,
+      "y": 180,
+      "wires": [
+          [
+              "7c334db3c7729417"
+          ]
+      ]
+  },
+  {
+      "id": "b36f109f114ddfbf",
+      "type": "inject",
+      "z": "175bf39a7215ebb4",
+      "name": "",
+      "props": [
+          {
+              "p": "payload"
+          },
+          {
+              "p": "topic",
+              "vt": "str"
+          }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "payload": "{\"r\":255,\"g\":0,\"b\":0}",
+      "payloadType": "json",
+      "x": 180,
+      "y": 180,
+      "wires": [
+          [
+              "854e49ed438b2f91"
+          ]
+      ]
+  },
+  {
+      "id": "7c334db3c7729417",
+      "type": "debug",
+      "z": "175bf39a7215ebb4",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 610,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "f457e57dc3b6cb23",
+      "type": "cie-config-devilsmaul",
+      "name": "",
+      "whiteRef": "D50",
+      "rgbModel": "CIE RGB",
+      "gammaModel": "2.2",
+      "adaptation": "Bradford"
+  }
+]

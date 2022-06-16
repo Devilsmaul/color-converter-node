@@ -1,0 +1,11 @@
+{
+    "cie-config":{
+        "label":{
+            "cie-config":"CIE config",
+            "whiteRef":"White Ref",
+            "rgbModel":"RGB Model",
+            "gammaModel":"Gamma Model",
+            "adaptation":"Adaptation"
+        }
+    }
+}

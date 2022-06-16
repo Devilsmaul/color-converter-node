@@ -1,0 +1,52 @@
+{
+  "name": "@devilsmaul/node-red-color-converter",
+  "version": "0.1.0",
+  "description": "Advanced color conversions of xyBri (ikea-tradfri) lights to gain satisfying colors",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn build:tsc && yarn build:copy-html",
+    "build:tsc": "tsc -p tsconfig.dist.json",
+    "build:copy-html": "node -r ts-node/register ./../../../build-scripts/copy-html.ts",
+    "build:watch": "tsc -p tsconfig.dist.json --watch",
+    "test": "yarn jest --verbose"
+  },
+  "node-red": {
+    "version": ">=1.3.7",
+    "nodes": {
+      "color-converter-node": "dist/nodes/color-converter-node/color-converter-node.js",
+      "cie-config": "dist/config-nodes/cie-config/cie-config-node.js"
+    }
+  },
+  "engines": {
+    "node": ">=v12.0.0"
+  },
+  "keywords": [
+    "node-red",
+    "colorspaces",
+    "xy",
+    "xyBri",
+    "rgb",
+    "ikea",
+    "zigbee2mqtt",
+    "z2m"
+  ],
+  "devDependencies": {
+    "@types/node-red": "^1.2.1",
+    "@types/node-red-node-test-helper": "^0.2.2",
+    "node-red-node-test-helper": "^0.2.7"
+  },
+  "dependencies": {
+    "@devilsmaul/color-converter": "file:../../../../libs/color-converter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devilsmaul/node-red-color-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Devilsmaul/node-red-color-converter/issues"
+  },
+  "homepage": "https://github.com/Devilsmaul/node-red-color-converter#readme",
+  "author": "Helge Schlegel",
+  "license": "MIT"
+}

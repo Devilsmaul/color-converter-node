@@ -1,0 +1,9 @@
+{    
+    "color-converter":{
+        "label":{
+            "output":"Output",
+            "formatter":"Formatter",
+            "cie-config":"Converter"
+        }
+    }
+}

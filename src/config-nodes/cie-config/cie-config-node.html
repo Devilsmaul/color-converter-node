@@ -1,0 +1,84 @@
+<script type="text/javascript">
+  RED.nodes.registerType("cie-config-devilsmaul", {
+    category: "config",
+    defaults: {
+      name: { value: "" },
+      whiteRef: { value: "D50", validate: RED.validators.regex(/^(?!\\s*$).+/) },
+      rgbModel: { value: "CIE RGB", validate: RED.validators.regex(/^(?!\\s*$).+/) },
+      gammaModel: { value: "2.2", validate: RED.validators.regex(/^(?!\\s*$).+/) },
+      adaptation: { value: "Bradford", validate: RED.validators.regex(/^(?!\\s*$).+/) },
+    },
+    label: function () {
+      return this.name || "cie config";
+    },
+    oneditprepare: function () {
+      $("#node-input-whiteRef").val(this.whiteRef || "D50");
+      $("#node-input-rgbModel").val(this.rgbModel || "CIE RGB");
+      $("#node-input-gammaModel").val(this.gammaModel || "2.2");
+      $("#node-input-adaptation").val(this.adaptation || "Bradford");
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="cie-config-devilsmaul">
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+    <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-whiteRef"><i class="fa fa-cog"></i> <span data-i18n="cie-config.label.whiteRef"></span></label>
+    <select id="node-config-input-whiteRef">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D50">D50</option>
+      <option value="D55">D55</option>
+      <option value="D65">D65</option>
+      <option value="D75">D75</option>
+      <option value="E">E</option>
+      <option value="F2">F2</option>
+      <option value="F7">F7</option>
+      <option value="F11">F11</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-rgbModel"><i class="fa fa-cog"></i> <span data-i18n="cie-config.label.rgbModel"></span></label>
+    <select id="node-config-input-rgbModel">
+      <option value="Adobe RGB (1998)">Adobe RGB (1998)</option>
+      <option value="Apple RGB">Apple RGB</option>
+      <option value="Best RGB">Best RGB</option>
+      <option value="Beta RGB">Beta RGB</option>
+      <option value="Bruce RGB">Bruce RGB</option>
+      <option value="CIE RGB">CIE RGB</option>
+      <option value="ColorMatch RGB">ColorMatch RGB</option>
+      <option value="Don RGB ">Don RGB 4</option>
+      <option value="ECI RGB v2">ECI RGB v2</option>
+      <option value="Ekta Space PS5">Ekta Space PS5</option>
+      <option value="NTSC RGB">NTSC RGB</option>
+      <option value="PAL/SECAM RGB">PAL/SECAM RGB</option>
+      <option value="ProPhoto RGB">ProPhoto RGB</option>
+      <option value="SMPTE-C RGB">SMPTE-C RGB</option>
+      <option value="sRGB">sRGB</option>
+      <option value="Wide Gamut RGB">Wide Gamut RGB</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-gammaModel"><i class="fa fa-cog"></i> <span data-i18n="cie-config.label.gammaModel"></span></label>
+    <select id="node-config-input-gammaModel">
+      <option value="1.0">1.0</option>
+      <option value="1.8">1.8</option>
+      <option value="2.2">2.2</option>
+      <option value="sRGB">sRGB</option>
+      <option value="L*">L*</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-adaptation"><i class="fa fa-cog"></i> <span data-i18n="cie-config.label.adaptation"></span></label>
+    <select id="node-config-input-adaptation">
+      <option value="Bradford">Bradford</option>
+      <option value="von Kries">von Kries</option>
+      <option value="XYZ Scaling">XYZ Scaling</option>
+      <option value="None">None</option>
+    </select>
+  </div>
+</script>

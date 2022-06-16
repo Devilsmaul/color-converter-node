@@ -1,0 +1,49 @@
+<script type="text/javascript">
+  RED.nodes.registerType("color-converter", {
+    category: "smart-home",
+    color: "#FFF3D3",
+    defaults: {
+      name: { value: "" },
+      cieConfig: { type: "cie-config-devilsmaul" },
+      output: { value: "xyBri", validate: RED.validators.regex(/^(?!\\s*$).+/) },
+      formatter: { value: "z2mqtt", validate: RED.validators.regex(/^(?!\\s*$).+/) },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "icons8-color-mode-48.png",
+    label: function () {
+      return this.name || "color converter";
+    },
+    oneditprepare: function () {
+      $("#node-input-output").val(this.output || "xyBri");
+      $("#node-input-formatter").val(this.formatter || "z2mqtt");
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="color-converter">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-cieConfig"><i class="fa fa-lightbulb-o"></i> <span data-i18n="color-converter.label.cie-config"></span></label>
+    <input type="text" id="node-input-cieConfig" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-output"><i class="fa fa-file-code-o"></i> <span data-i18n="color-converter.label.output"></span></label>
+    <select id="node-input-output">
+      <option value="rgb">RGB</option>
+      <option value="hsv">HSV</option>
+      <option value="xyBri">xyBri</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-formatter"><i class="fa fa-align-left"></i> <span data-i18n="color-converter.label.formatter"></span></label>
+    <select id="node-input-formatter">
+      <option value="z2mqtt" selected>Z2MQTT</option>
+      <option value="iro" selected>IRO Color Picker</option>
+    </select>
+  </div>
+</script>
